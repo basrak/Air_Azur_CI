@@ -24,8 +24,6 @@ class index extends CI_Controller {
 
         $msgConnexion = "";
 
-        $User = $bdd->get($login, $mdp);
-
         if (isset($_POST['Connexion'])) {
             $login = htmlspecialchars($_POST['login']);
             $mdp = htmlspecialchars($_POST['mdp']);
@@ -43,10 +41,8 @@ class index extends CI_Controller {
 
     function Connecter($login, $mdp) {
 
-        $connexion = BddConnexion::getInstance();
-        $bdd = new UsersManager($connexion->handle());
-
-        $User = $bdd->get($login, $mdp);
+        $em = $this->doctrine->em;
+        $User = $em->getRepository('Entity\Users')->findOneBy(array('login' => $login,  'mdp' => $mdp));
 
         if ($User == false || is_null($User)) {
             $msgConnexion = "Le login ou le mot de passe sont incorrects";
