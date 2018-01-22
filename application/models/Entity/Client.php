@@ -1,28 +1,54 @@
 <?php
+namespace Entity;
 
+/**
+ * @Entity
+ * @Table(name="users")
+ */
 class Client implements JsonSerializable {
 
+    /**
+     * @Id
+     * @Column(type="integer", nullable=false)
+     * @GeneratedValue(strategy="AUTO")
+     */
     private $_idClient;
+    /**
+     * @NOMCLIENT
+     * @Column(type="string", lenght=30, nullable=true)
+     */
     private $_nomClient;
+    /**
+     * @PRENOMCLIENT
+     * @Column(type="string", lenght=30, nullable=true)
+     */
     private $_prenomClient;
+    /**
+     * @ADRCLIENT
+     * @Column(type="integer", lenght=50, nullable=true)
+     */
     private $_adrClient;
+    /**
+     * @CPCLIENT
+     * @Column(type="integer", lenght=5, nullable=true)
+     */
     private $_CPClient;
+    /**
+     * @VILLECLIENT
+     * @Column(type="string", lenght=30, nullable=true)
+     */
     private $_villeClient;
+    /**
+     * @TELCLIENT
+     * @Column(type="string", lenght=15, nullable=true)
+     */
     private $_telClient;
+    /**
+     * @MAILCLIENT
+     * @Column(type="string", lenght=30, nullable=true)
+     */
     private $_mailClient;
 
-    //hydratation des données à partir de la base de données
-    public function hydrate(array $data) {
-        foreach ($data as $key => $value) {
-            // On récupère le nom du setter correspondant à l'attribut.
-            $method = 'set' . ucfirst($key);
-            // Si le setter correspondant existe.
-            if (method_exists($this, $method)) {
-                // On appelle le setter.
-                $this->$method($value);
-            }
-        }
-    }
 
     //Getters
     public function getIdClient() {
