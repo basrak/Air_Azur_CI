@@ -1,5 +1,10 @@
 <?php
+namespace Entity;
 
+/**
+ * @Entity
+ * @Table(name="Aeroport")
+ */
 class Aeroport implements JsonSerializable {
     /**
      * @Id
