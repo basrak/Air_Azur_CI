@@ -1,28 +1,32 @@
 <?php
+namespace Entity;
 
+/**
+ * @Entity
+ * @Table(name="users")
+ */
 class Vol implements JsonSerializable
 {
+    /**
+     * @IDVOL
+     * @Column(type="integer", nullable=false)
+     * @GeneratedValue(strategy="AUTO")
+     */
     private $_idVol;
+    /**
+     * @DATEDEPART
+     * @Column(type="date", nullable=false)
+     */
     private $_dateDepart;
+    /**
+     * @DATEARRIVEE
+     * @Column(type="date", nullable=true)
+     */
     private $_dateArrivee;
+    
     private $_volGen;
     private $_placesRest;
-
-    //hydratation des données à partir de la base de données
-    public function hydrate(array $data)
-    {
-    foreach ($data as $key => $value)
-        {
-        // On récupère le nom du setter correspondant à l'attribut.
-        $method = 'set'.ucfirst($key);       
-        // Si le setter correspondant existe.
-        if (method_exists($this, $method))
-                {
-                // On appelle le setter.
-                $this->$method($value);
-                }
-        }
-    }       
+       
             
     //Getters
     public function getIdVol()  { return $this->_idVol; }
