@@ -1,13 +1,43 @@
 <?php
 
+namespace Entity;
+
+/**
+ * @Entity
+ * @Table(name="volgen")
+ */
 class VolGen implements JsonSerializable
 {
+    /**
+     * @Id
+     * @Column(type="integer", nullable=false)
+     * @GeneratedValue(strategy="AUTO")
+     */
     private $_idVol;
+    /**
+     * @Column(type="string", length=10, nullable=true)
+     */
     private $_codeVol;
+    /**
+     * @Column(type="integer", length=2, nullable=false)
+     */
     private $_idArpt;
+    /**
+     * @Column(type="integer", length=2, nullable=false)
+     */
     private $_idArptArrivee;
+    /**
+     * @Column(type="integer", length=3, nullable=true)
+     */
     private $_placesVol;
+    /**
+     * @Column(type="decimal", length=13.2, nullable=true)
+     */
+    
     private $_prixVol;
+    /**
+     * @Column(type="string", length=10, nullable=true)
+     */
     private $_jourVol;
       
     

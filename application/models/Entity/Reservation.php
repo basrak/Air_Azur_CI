@@ -1,30 +1,48 @@
 <?php
 
+namespace Entity;
+
+/**
+ * @Entity
+ * @Table(name="reservation")
+ */
 class Reservation implements JsonSerializable
 {
+    /**
+     * @Id
+     * @Column(type="integer", nullable=false)
+     * @GeneratedValue(strategy="AUTO")
+     */
     private $_idUsers;
+    
+     
+    /**
+     * @Column(type="integer", length=4, nullable=false)
+     */
     private $_idReserv;
+    /**
+     * @Column(type="integer", length=2, nullable=false)
+     */
     private $_idClient;
+    /**
+     * @Column(type="integer", length=5, nullable=false)
+     */
     private $_idVol;
+    /**
+     * @Column(type="datetime", nullable=false)
+     */
     private $_dateDepart;
+    /**
+     * @Column(type="date", nullable=true)
+     */
     private $_dateReserv;
+    /**
+     * @Column(type="integer", length=3, nullable=true)
+     */
     private $_nbrReserv;
     
-    //hydratation des données à partir de la base de données
-    public function hydrate(array $data)
-    {
-    foreach ($data as $key => $value)
-        {
-        // On récupère le nom du setter correspondant à l'attribut.
-        $method = 'set'.ucfirst($key);       
-        // Si le setter correspondant existe.
-        if (method_exists($this, $method))
-                {
-                // On appelle le setter.
-                $this->$method($value);
-                }
-        }
-    }       
+    
+        
             
     //Getters
     public function getIdUsers()  { return $this->_idUsers; }

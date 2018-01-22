@@ -42,7 +42,7 @@ class Users implements JsonSerializable
     private $_adrAgence;
     
      /**
-     * @Column(type="int", length=5, nullable=true)
+     * @Column(type="integer", length=5, nullable=true)
      */  
     private $_CPAgence;
      /**
