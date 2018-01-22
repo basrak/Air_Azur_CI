@@ -1,9 +1,26 @@
 <?php
+namespace Entity;
 
+/**
+ * @Entity
+ * @Table(name="Aeroport")
+ */
 class Aeroport implements JsonSerializable {
-
+    /**
+     * @Id
+     * @Column(type="integer", nullable=false)
+     * @GeneratedValue(strategy="AUTO")
+     */
     private $_idArpt;
+    
+     /**
+     * @Column(type="string", length=20, nullable=true)
+     */
     private $_nomArpt;
+    
+     /**
+     * @Column(type="string", length=30, nullable=true)
+     */
     private $_villeArpt;
        
     //hydratation des données à partir de la base de données
