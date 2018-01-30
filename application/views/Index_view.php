@@ -55,5 +55,11 @@
 
 <?php $script = ''; ?>
 
-<?php
-require('/view/_layout.php');
+<?php $this->load->view('Layout',array(
+                        'title' => $title,
+                        'nav' => $nav,
+                        'header' => $header,
+                        'content1' => $content1,
+                        'content2' => $content2,
+                        'script' => $script
+                        ));

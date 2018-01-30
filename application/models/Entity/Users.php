@@ -7,7 +7,7 @@ namespace Entity;
  * @Table(name="users")
  */
 
-class Users implements JsonSerializable
+class Users 
 {
     /**
      * @Id

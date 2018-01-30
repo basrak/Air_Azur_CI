@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/Air_Azur/';
+$config['base_url'] = 'http://localhost/Air_Azur_CI/';
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +35,7 @@ $config['base_url'] = 'http://localhost/Air_Azur/';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'indexView.php';
+$config['index_page'] = 'Index_view.php';
 
 /*
 |--------------------------------------------------------------------------
